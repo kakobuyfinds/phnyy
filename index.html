@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#243e39">
+<title>ZentBuy Spreadsheet Guide: Finds, Sizing &amp; QC Checks</title>
+<meta name="description" content="Explore a practical ZentBuy spreadsheet guide. Browse fashion categories, compare sizing, review QC photos and plan a shortlist before ordering.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="ZentBuy Spreadsheet — The Considered Finds Guide">
+<meta property="og:description" content="Start with a category. Check measurements, listing details and shipping costs. Build a more useful fashion shortlist.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=75">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=75">
+<style>
+:root{--paper:#f5f3ec;--ink:#243e39;--muted:#596760;--line:#d5dbd2;--white:#fffef9;--accent:#d6ec79;--soft:#e8ece3;--rust:#a44d36}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--rust);outline-offset:5px}
+img{display:block;max-width:100%;height:auto;background:var(--soft)}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{line-height:1.13;letter-spacing:-.04em;text-wrap:balance}
+h1{font-size:clamp(2.8rem,6.5vw,5.7rem);font-weight:750;max-width:850px}
+h2{font-size:clamp(1.9rem,3.7vw,3rem)}
+h3{font-size:1.3rem}
+p{max-width:72ch}
+.wrap{width:min(1240px,calc(100% - 48px));margin:auto}
+.masthead{border-bottom:1px solid var(--line)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:86px}
+.logo{font-size:1.24rem;font-weight:800;letter-spacing:-.05em;text-decoration:none}
+.logo span{display:block;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;font-weight:550}
+.toplink{font-size:.85rem}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.17em;font-weight:750}
+.categories{padding:26px 0 30px;border-bottom:1px solid var(--line)}
+.category-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:16px}
+.category-heading p{font-size:.78rem;color:var(--muted)}
+.category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.category-grid a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;background:var(--white);border:1px solid var(--line);text-decoration:none;font-weight:650;font-size:.84rem;transition:background .15s}
+.category-grid a::after{content:"↗";font-weight:400}
+.category-grid a:hover{background:var(--accent)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;padding:58px 0;align-items:center}
+.hero .eyebrow{color:var(--rust);margin-bottom:20px}
+.hero h1 span{font-weight:450}
+.hero .intro{margin:24px 0;color:var(--muted);font-size:1.06rem}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;background:var(--ink);color:#fff;padding:14px 21px;text-decoration:none;font-size:.9rem;font-weight:650;border:1px solid var(--ink)}
+.button:hover{background:#35574f}
+.hero-note{margin-top:16px;font-size:.76rem;color:var(--muted)}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:48% 48% 2px 2px}
+figcaption{font-size:.73rem;color:var(--muted);margin-top:10px}
+.photo-label{position:absolute;left:-20px;bottom:62px;background:var(--accent);padding:16px 20px;font-size:.8rem;font-weight:700;transform:rotate(-5deg)}
+.answer{display:grid;grid-template-columns:220px 1fr;gap:40px;background:var(--ink);color:var(--white);padding:34px 38px}
+.answer .eyebrow{color:var(--accent)}
+.answer h2{font-size:1.48rem;margin-bottom:12px}
+.answer p{color:#e2e9e0}
+.section{padding:68px 0;border-bottom:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}
+.section-head .eyebrow{margin-bottom:12px;color:var(--rust)}
+.section-head>p{max-width:390px;color:var(--muted);font-size:.93rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step{padding-top:20px;border-top:2px solid var(--ink)}
+.number{display:inline-block;font-size:.8rem;margin-bottom:22px;color:var(--rust);font-weight:700}
+.step h3{margin-bottom:13px}
+.step p{font-size:.94rem;color:var(--muted)}
+.editorial{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:start}
+.editorial-image img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff}
+.editorial-copy>p{color:var(--muted);margin:18px 0 24px}
+.checklist{margin:0;padding:0;list-style:none}
+.checklist li{padding:16px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:32px 1fr;gap:10px;font-size:.94rem}
+.checklist li>span{color:var(--rust);font-size:.75rem;padding-top:3px}
+.checklist strong{display:block;margin-bottom:4px}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:.91rem}
+caption{text-align:left;font-weight:700;padding-bottom:15px}
+th,td{padding:17px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+td:first-child{font-weight:700;min-width:140px}
+.notes{font-size:.8rem;color:var(--muted);margin-top:18px}
+.articles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.article{background:var(--white);border:1px solid var(--line);padding:26px}
+.article .eyebrow{color:var(--rust);font-size:.64rem;margin-bottom:18px}
+.article h3{margin-bottom:16px}
+.article p{color:var(--muted);font-size:.91rem;margin-bottom:14px}
+.article ul{padding-left:19px;font-size:.87rem;color:var(--muted)}
+.article li{margin-bottom:9px}
+.search-themes{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.theme h3{font-size:1.06rem;margin-bottom:13px}
+.theme ul{padding-left:18px;color:var(--muted);font-size:.85rem;margin:0}
+.theme li{margin-bottom:10px}
+.faq-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:60px}
+.faq-intro p{margin-top:18px;color:var(--muted);font-size:.94rem}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;line-height:1.4;padding-right:12px}
+details p{padding-top:14px;color:var(--muted);font-size:.93rem}
+.closing{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--accent);padding:34px;margin:44px 0}
+.closing h2{font-size:1.85rem}
+.closing p{margin-top:10px;font-size:.91rem}
+footer{padding:12px 0 32px;font-size:.77rem;color:var(--muted)}
+footer p+p{margin-top:12px}
+@media(min-width:900px){.below-fold{content-visibility:auto;contain-intrinsic-size:auto 700px}}
+@media(max-width:900px){
+.hero{gap:30px}.category-grid{grid-template-columns:repeat(3,1fr)}
+.search-themes{grid-template-columns:repeat(2,1fr)}
+.articles{grid-template-columns:1fr}.article{padding:28px}
+.answer{grid-template-columns:160px 1fr;gap:20px}
+.faq-layout{gap:30px;grid-template-columns:.7fr 1.3fr}
+}
+@media(max-width:620px){
+.wrap{width:calc(100% - 32px)}
+.masthead .wrap{min-height:76px;gap:12px}.logo{font-size:1.1rem}.toplink{font-size:.72rem}
+.category-grid{grid-template-columns:repeat(2,1fr)}.category-grid a{font-size:.78rem;padding:12px}
+.category-heading{display:block}.category-heading p{margin-top:6px}
+.hero{grid-template-columns:1fr;padding:35px 0;gap:28px}
+.hero h1{font-size:3.1rem}.hero-photo{max-width:450px;margin:auto;width:100%}
+.hero-photo img{aspect-ratio:5/4;border-radius:42% 42% 2px 2px}.photo-label{left:10px;bottom:48px}
+.answer{grid-template-columns:1fr;padding:26px;gap:15px}
+.section{padding:42px 0}.section-head{display:block}.section-head>p{margin-top:18px}
+.steps,.editorial,.faq-layout{grid-template-columns:1fr}
+.steps{gap:27px}.number{margin-bottom:12px}
+.editorial{gap:25px}.editorial-image{max-width:450px}
+.search-themes{gap:24px 16px}.theme ul{font-size:.8rem}
+.closing{display:block;padding:26px}.closing .button{margin-top:22px}
+th,td{padding:13px;font-size:.83rem}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebPage",
+      "name":"ZentBuy Spreadsheet — The Considered Finds Guide",
+      "inLanguage":"en",
+      "description":"An independent guide to fashion discovery, spreadsheet fields, sizing, QC photos and shipping-cost checks.",
+      "about":[
+        {"@type":"Thing","name":"ZentBuy spreadsheet"},
+        {"@type":"Thing","name":"ZentBuy finds"},
+        {"@type":"Thing","name":"ZentBuy product links"},
+        {"@type":"Thing","name":"ZentBuy QC photos"},
+        {"@type":"Thing","name":"ZentBuy sizing guide"}
+      ]
+    },
+    {
+      "@type":"Article",
+      "headline":"Sneaker sizing: begin with a pair you own",
+      "inLanguage":"en",
+      "articleBody":"Measure the removable insole of a comfortable pair, then compare it with the seller's model-specific chart. Check whether the chart describes foot length, insole length or an outer-sole measurement. Ask for the missing measurement before choosing a size. A familiar size label alone cannot establish the fit of a different model."
+    },
+    {
+      "@type":"Article",
+      "headline":"Clothing fit: compare the garment, not the letter",
+      "inLanguage":"en",
+      "articleBody":"Lay a well-fitting garment flat. Record chest width, shoulder width, sleeve length and body length using the same method as the listing. Compare these measurements with the selected variant. For matching sets, check the top and bottom separately. Ask about fabric composition and care instructions when they are absent."
+    },
+    {
+      "@type":"Article",
+      "headline":"Shipping: separate the item from the parcel",
+      "inLanguage":"en",
+      "articleBody":"Keep a separate estimate for item cost, domestic transport, service or payment fees, international delivery and destination charges. Ask which costs are included in the current quote. Packaging may change the chargeable weight. Consolidation can change the total, but it does not automatically make every order cheaper."
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"en",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"What is a ZentBuy spreadsheet?",
+          "acceptedAnswer":{"@type":"Answer","text":"A ZentBuy spreadsheet is a product-discovery list organized for people researching purchases through ZentBuy. A useful entry records the source link, item details, size information and notes needed to compare listings. This page is an independent reading guide, not a live spreadsheet or checkout."}
+        },
+        {
+          "@type":"Question",
+          "name":"Where do the browse buttons take me?",
+          "acceptedAnswer":{"@type":"Answer","text":"Category buttons open the corresponding category on hipobuyfind.com. All other navigation links open the Hipobuyfind homepage. They do not open a ZentBuy account, an individual product or a downloadable spreadsheet."}
+        },
+        {
+          "@type":"Question",
+          "name":"Can QC photos prove that an item is authentic?",
+          "acceptedAnswer":{"@type":"Answer","text":"No. QC photos can help you inspect visible details such as size labels, construction and apparent damage. They do not by themselves prove authenticity, material composition or long-term durability."}
+        },
+        {
+          "@type":"Question",
+          "name":"How should I choose a clothing or sneaker size?",
+          "acceptedAnswer":{"@type":"Answer","text":"Compare the listing's model-specific measurements with a garment or pair you already wear comfortably. Check how the measurements were taken, and ask for clarification when a chart is incomplete. Do not rely only on a familiar size label."}
+        },
+        {
+          "@type":"Question",
+          "name":"Does a listed item price include international shipping?",
+          "acceptedAnswer":{"@type":"Answer","text":"Do not assume it does. Confirm the item price, domestic shipping, service or payment fees, international delivery and any destination charges separately before paying."}
+        },
+        {
+          "@type":"Question",
+          "name":"Is this page affiliated with ZentBuy or the pictured brands?",
+          "acceptedAnswer":{"@type":"Answer","text":"No official relationship is claimed. Brand names and reference images identify the styles discussed. They do not certify destination listings, establish product availability or imply endorsement."}
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/phnyy/">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="https://www.hipobuyfind.com" aria-label="Visit hipobuyfind.com">
+      hipobuyfind.com
+      <span>The considered finds guide</span>
+    </a>
+    <a class="toplink" href="https://www.hipobuyfind.com">Explore the directory ↗</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="categories" aria-label="Product categories on Hipobuyfind">
+    <div class="category-heading">
+      <p class="eyebrow">Choose your starting point</p>
+      <p>Category links open Hipobuyfind.</p>
+    </div>
+    <div class="category-grid">
+      <a href="https://hipobuyfind.com/category-911-Shoes.html">Shoes</a>
+      <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters</a>
+      <a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-Shirts</a>
+      <a href="https://hipobuyfind.com/category-914-Jackets.html">Jackets</a>
+      <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Pants/Shorts</a>
+      <a href="https://hipobuyfind.com/category-916-Headwear.html">Headwear</a>
+      <a href="https://hipobuyfind.com/category-917-Sets.html">Sets</a>
+      <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underwear/underpants</a>
+      <a href="https://hipobuyfind.com/category-919-Jersey.html">Jersey</a>
+      <a href="https://hipobuyfind.com/category-920-Accessories.html">Accessories</a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div>
+      <p class="eyebrow">Independent field notes · English edition</p>
+      <h1 id="page-title">ZentBuy spreadsheet.<br><span>Find your focus.</span></h1>
+      <p class="intro">A good shortlist starts with the right questions. Explore fashion categories, compare measurements and learn what a product photo can actually tell you before you commit.</p>
+      <a class="button" href="https://www.hipobuyfind.com">Browse Hipobuyfind <span aria-hidden="true">↗</span></a>
+      <p class="hero-note">A reading guide, not a live inventory feed. No prices, discounts or availability are promised here.</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=75"
+           alt="Red Nike athletic shoe photographed against a red background"
+           width="1000" height="1250" fetchpriority="high" decoding="async">
+      <span class="photo-label">Look closely. Choose deliberately.</span>
+      <figcaption>Nike footwear reference image. Photography does not represent a verified listing.</figcaption>
+    </figure>
+  </section>
+
+  <aside class="answer" aria-label="A quick definition">
+    <p class="eyebrow">The quick answer</p>
+    <div>
+      <h2>What makes a spreadsheet useful?</h2>
+      <p>A ZentBuy spreadsheet is a product-discovery list. Its value comes from clear source links, relevant item details and enough information to compare alternatives. Use this guide to assess those details, then explore the separate Hipobuyfind directory through the links above.</p>
+    </div>
+  </aside>
+
+  <section class="section" aria-labelledby="method-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">01 / A more useful shortlist</p>
+        <h2 id="method-title">Three decisions before the cart.</h2>
+      </div>
+      <p>Use ZentBuy finds as a starting point for research. A saved row should tell you why the item suits your needs.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <span class="number">01 — PURPOSE</span>
+        <h3>Decide what it needs to do.</h3>
+        <p>Everyday walking, layering and occasional wear create different requirements. Set your preferred fit, material and practical use before comparing silhouettes.</p>
+      </article>
+      <article class="step">
+        <span class="number">02 — EVIDENCE</span>
+        <h3>Read beyond the cover photo.</h3>
+        <p>Inspect the selected variant, size chart, source listing and return conditions. Save the original product identifier so a changed title does not erase your reference.</p>
+      </article>
+      <article class="step">
+        <span class="number">03 — TOTAL</span>
+        <h3>Leave room for the whole cost.</h3>
+        <p>Separate the item amount from delivery and other charges. Compare a current quote for your destination rather than treating a spreadsheet figure as a final total.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section below-fold" aria-labelledby="detail-title">
+    <div class="editorial">
+      <figure class="editorial-image">
+        <img src="https://images.stockx.com/images/Dior-B30-Black-Black-Product.jpg?auto=compress&amp;fit=fill&amp;bg=FFFFFF&amp;w=700&amp;q=75"
+             alt="Black Dior B30 sneaker in side profile with layered panels and a thick sole"
+             width="700" height="700" loading="lazy" decoding="async">
+        <figcaption>Dior B30 visual reference. Confirm the exact model and variant on any destination listing.</figcaption>
+      </figure>
+      <div class="editorial-copy">
+        <p class="eyebrow">02 / Learn to read the details</p>
+        <h2 id="detail-title">A familiar logo is only one detail.</h2>
+        <p>Whether you are comparing Nike sneakers, Louis Vuitton accessories, Gucci headwear, Hermès scarves or Dior footwear, brand recognition cannot replace measurements, clear photographs and provenance.</p>
+        <ol class="checklist">
+          <li><span>01</span><div><strong>Match the actual variant.</strong>Check model name, color, material description and selected size against the photos.</div></li>
+          <li><span>02</span><div><strong>Ask for useful views.</strong>For footwear, inspect both shoes, soles and labels. For clothing and accessories, check seams, closures and dimensions.</div></li>
+          <li><span>03</span><div><strong>Keep authenticity separate.</strong>QC photographs show visible condition. They do not establish authenticity or replace reliable provenance.</div></li>
+          <li><span>04</span><div><strong>Resolve missing information.</strong>If a seller cannot clarify fit, composition or return terms, leave the item off your shortlist until you have enough information.</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section below-fold" aria-labelledby="fields-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">03 / ZentBuy product links</p>
+        <h2 id="fields-title">Keep the fields that help you decide.</h2>
+      </div>
+      <p>A compact comparison sheet is easier to use when each column answers a specific question.</p>
+    </div>
+    <div class="table-scroll" role="region" aria-label="Recommended spreadsheet fields" tabindex="0">
+      <table>
+        <caption>A practical record for comparing fashion listings</caption>
+        <thead>
+          <tr><th scope="col">Field</th><th scope="col">Record this</th><th scope="col">Why it matters</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Original source</td><td>Marketplace, seller and original item ID</td><td>Helps distinguish the same image used by different sellers.</td></tr>
+          <tr><td>Variant</td><td>Exact color, model and selected size</td><td>Prevents comparing details from another option.</td></tr>
+          <tr><td>Measurements</td><td>Relevant dimensions and measuring method</td><td>Makes fit comparisons more useful than size letters alone.</td></tr>
+          <tr><td>Photo evidence</td><td>Seller images and any available order-specific QC</td><td>Separates promotional photography from photos of the received item.</td></tr>
+          <tr><td>Cost notes</td><td>Currency, quote date and included charges</td><td>Shows what still needs to be added or reconfirmed.</td></tr>
+          <tr><td>Open questions</td><td>Unclear materials, policies or shipping details</td><td>Keeps unresolved issues visible before payment.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="notes">This is a suggested record format. This page does not check source-link status, synchronize inventory or convert links into ZentBuy orders.</p>
+  </section>
+
+  <section class="section below-fold" aria-labelledby="articles-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">04 / The reading room</p>
+        <h2 id="articles-title">Small guides. Better questions.</h2>
+      </div>
+      <p>Read these short articles before narrowing your clothing, footwear and accessory choices.</p>
+    </div>
+    <div class="articles">
+      <article class="article">
+        <p class="eyebrow">Fit notes / Footwear</p>
+        <h3>Sneaker sizing: begin with a pair you own</h3>
+        <p>Measure the removable insole of a comfortable pair, then compare it with the seller’s model-specific chart. Check whether the chart describes foot length, insole length or an outer-sole measurement.</p>
+        <p>Ask for the missing measurement before choosing a size. A familiar size label alone cannot establish the fit of a different model.</p>
+        <ul>
+          <li>Use the same unit for both measurements.</li>
+          <li>Consider width as well as length.</li>
+          <li>Confirm the selected size on the order.</li>
+        </ul>
+      </article>
+      <article class="article">
+        <p class="eyebrow">ZentBuy sizing guide / Clothing</p>
+        <h3>Clothing fit: compare the garment, not the letter</h3>
+        <p>Lay a well-fitting garment flat. Record chest width, shoulder width, sleeve length and body length using the same method as the listing. Compare these measurements with the selected variant.</p>
+        <p>For matching sets, check the top and bottom separately. Ask about fabric composition and care instructions when they are absent.</p>
+        <ul>
+          <li>Allow for your preferred layering.</li>
+          <li>Check whether waist measurements are relaxed or stretched.</li>
+          <li>Review return restrictions for intimate apparel.</li>
+        </ul>
+      </article>
+      <article class="article">
+        <p class="eyebrow">Parcel planning / Costs</p>
+        <h3>Shipping: separate the item from the parcel</h3>
+        <p>Keep a separate estimate for item cost, domestic transport, service or payment fees, international delivery and destination charges. Ask which costs are included in the current quote.</p>
+        <p>Packaging may change the chargeable weight. Consolidation can change the total, but it does not automatically make every order cheaper.</p>
+        <ul>
+          <li>Confirm the destination and available route.</li>
+          <li>Check how parcel weight is calculated.</li>
+          <li>Read the carrier and agent’s current conditions.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section below-fold" aria-labelledby="search-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">05 / Search with a purpose</p>
+        <h2 id="search-title">Turn broad searches into useful checks.</h2>
+      </div>
+      <p>These research prompts focus on four themes: ZentBuy finds, product links, QC photos and sizing. Add the exact item or model when you search.</p>
+    </div>
+    <div class="search-themes">
+      <div class="theme">
+        <h3>Find the right category</h3>
+        <ul>
+          <li>ZentBuy spreadsheet for sneakers</li>
+          <li>ZentBuy hoodie measurement guide</li>
+          <li>ZentBuy T-shirt fit comparison</li>
+          <li>ZentBuy jacket fabric details</li>
+          <li>ZentBuy pants and shorts sizing</li>
+          <li>ZentBuy matching set measurements</li>
+        </ul>
+      </div>
+      <div class="theme">
+        <h3>Understand the listing</h3>
+        <ul>
+          <li>How to read a ZentBuy spreadsheet</li>
+          <li>How to check ZentBuy product links</li>
+          <li>Find an original Weidian item ID</li>
+          <li>Compare Taobao listing variants</li>
+          <li>Check 1688 minimum order quantities</li>
+          <li>What to record in a fashion shortlist</li>
+        </ul>
+      </div>
+      <div class="theme">
+        <h3>Review photo evidence</h3>
+        <ul>
+          <li>How to review ZentBuy QC photos</li>
+          <li>Sneaker sole and size-label checks</li>
+          <li>Hoodie stitching inspection checklist</li>
+          <li>Headwear circumference measurements</li>
+          <li>Jersey print and seam inspection</li>
+          <li>Accessory closure and dimension checks</li>
+        </ul>
+      </div>
+      <div class="theme">
+        <h3>Plan before payment</h3>
+        <ul>
+          <li>ZentBuy item cost versus shipping</li>
+          <li>What a parcel shipping quote includes</li>
+          <li>Actual versus volumetric parcel weight</li>
+          <li>Questions about clothing return policies</li>
+          <li>How to compare garment size charts</li>
+          <li>Source photos versus order-specific QC</li>
+        </ul>
+      </div>
+    </div>
+    <p class="notes">Search prompts are ideas for further research, not claims that a specific product, service or policy is available.</p>
+  </section>
+
+  <section class="section below-fold" aria-labelledby="faq-title">
+    <div class="faq-layout">
+      <div class="faq-intro">
+        <p class="eyebrow">06 / Direct answers</p>
+        <h2 id="faq-title">Before you follow a link.</h2>
+        <p>Understand what this guide provides and what you still need to confirm with the destination site or seller.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>What is a ZentBuy spreadsheet?</summary>
+          <p>A ZentBuy spreadsheet is a product-discovery list organized for people researching purchases through ZentBuy. A useful entry records the source link, item details, size information and notes needed to compare listings. This page is an independent reading guide, not a live spreadsheet or checkout.</p>
+        </details>
+        <details>
+          <summary>Where do the browse buttons take me?</summary>
+          <p>Category buttons open the corresponding category on hipobuyfind.com. All other navigation links open the Hipobuyfind homepage. They do not open a ZentBuy account, an individual product or a downloadable spreadsheet.</p>
+        </details>
+        <details>
+          <summary>Can QC photos prove that an item is authentic?</summary>
+          <p>No. QC photos can help you inspect visible details such as size labels, construction and apparent damage. They do not by themselves prove authenticity, material composition or long-term durability.</p>
+        </details>
+        <details>
+          <summary>How should I choose a clothing or sneaker size?</summary>
+          <p>Compare the listing’s model-specific measurements with a garment or pair you already wear comfortably. Check how the measurements were taken, and ask for clarification when a chart is incomplete. Do not rely only on a familiar size label.</p>
+        </details>
+        <details>
+          <summary>Does a listed item price include international shipping?</summary>
+          <p>Do not assume it does. Confirm the item price, domestic shipping, service or payment fees, international delivery and any destination charges separately before paying.</p>
+        </details>
+        <details>
+          <summary>Is this page affiliated with ZentBuy or the pictured brands?</summary>
+          <p>No official relationship is claimed. Brand names and reference images identify the styles discussed. They do not certify destination listings, establish product availability or imply endorsement.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <aside class="closing">
+    <div>
+      <h2>Choose a category. Keep your criteria.</h2>
+      <p>Take your measurements, questions and shortlist into the next step.</p>
+    </div>
+    <a class="button" href="https://www.hipobuyfind.com">Visit Hipobuyfind <span aria-hidden="true">↗</span></a>
+  </aside>
+</main>
+
+<footer class="wrap">
+  <p><strong>hipobuyfind.com / Independent fashion discovery guide</strong></p>
+  <p>This page provides general comparison guidance. It does not sell products, accept payments, authenticate goods or represent ZentBuy, Nike, Louis Vuitton, Gucci, Hermès or Dior. Reference images are illustrative; destination listings require their own checks.</p>
+  <p>Research scope: search-result themes included category discovery, source links, sizing, QC photographs and parcel planning. Direct Google results were inaccessible during preparation; this page does not claim to reproduce Google’s first-page rankings or a verified top-ten analysis.</p>
+</footer>
+</body>
+</html>
